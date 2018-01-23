@@ -1,0 +1,26 @@
+*{
+  margin:0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  color: #212121;
+}
+
+h1,h2,h3,h4,h5,h6{
+  color: #666;
+  font-weight: 100;
+  margin: 0;
+}
+
+ul{
+  list-style: none;
+}
+
+
+a{
+  text-decoration: none;
+}
+
+
+/*SPACING*/
+.top24{margin-top: 24px;}

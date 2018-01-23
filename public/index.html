@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/materialize_grid.css">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <script text="text/javascript" src="js/jquery.js"></script>
+    <!--Icons-->
+    <script src="https://use.fontawesome.com/5251cdd048.js"></script>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+    <!--Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+    <script type="text/javascript" src="js/dbconf.js"></script>
+
+    <title>Clarke Designs</title>
+  </head>
+
+  <body>
+
+    <div id="mainmenu"></div>
+
+    <div class="row" id="profile">
+      <div class="avatar col l4 m12">
+        <img src="img/avatar.png"
+        width="275" height="275" alt=""/>
+      </div>
+
+      <div class="col l8 m12">
+        <h1>Curriculum Vitae</h1><br>
+        <b>Nombre: </b> 
+        <span id="nombre"></span><br>
+        <b>Correo: </b> 
+        <span id="email"></span><br>
+        <b>Edad: </b> 
+        <span id="age"></span><br>
+        <b>Pais: </b> 
+        <span id="pais"></span><br>
+        <b>Grado Academico: </b> 
+        <span id="title"></span><br>
+
+        <br><br>
+        <h3>Especializaciones:</h3>
+        <table class="code-lenguages">
+          <tr>
+            <td><i class="devicon-html5-plain-wordmark colored"></i></td>
+            <td><i class="devicon-css3-plain-wordmark colored"></i></td>
+            <td><i class="devicon-javascript-plain colored"></i></td>
+            <td><i class="devicon-jquery-plain-wordmark colored"></i></td>
+            <td><i class="devicon-illustrator-plain colored"></i></td>
+            <td><i class="devicon-csharp-plain colored"></i></td>
+            <td><i class="devicon-php-plain colored"></i></td>
+            <td><i class="devicon-java-plain-wordmark colored"></i></td>
+            <td><i class="devicon-android-plain-wordmark colored"></i></td>
+            <td><i class="devicon-ruby-plain-wordmark colored"></i></td>
+            <td><i class="devicon-mysql-plain-wordmark colored"></i></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <a href="login.html" id="fab">
+      <i class="fa fa-sign-in"></i>
+    </a>
+
+    <script>
+      //Importacion de Menu
+      $("#mainmenu").load("mods/mainmenu.html");
+
+      //Informacion de Curriculum
+      $ref = firebase.database().ref().child("curriculum");
+
+      $ref.child("nombre").on("value", x => $("#nombre").text(x.val()));
+      $ref.child("correo").on("value", x => $("#email").text(x.val()));
+      $ref.child("edad").on("value", x => $("#age").text(x.val()));
+      $ref.child("titulo").on("value", x => $("#title").text(x.val()));
+      $ref.child("pais").on("value", x =>$("#pais").text(x.val()));
+    </script>
+
+  </body>
+
+</html>

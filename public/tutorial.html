@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tutorial - Clarke Designs</title>
+  <link rel="stylesheet" href="css/materialize_grid.css">
+  <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="css/tutorial.css">
+  <script src="https://use.fontawesome.com/5251cdd048.js"></script>
+
+  <script text="text/javascript" src="js/jquery.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+  <script type="text/javascript" src="js/dbconf.js"></script>
+
+</head>
+<body>
+  
+  <div id="mainmenu"></div>
+  <div class="row">
+    
+    <div class="col s10 offset-s1" id="document">
+      <h1 class="doc-title"></h1>
+      <span class="doc-date"></span>
+      <div class="doc-img"></div>
+      <div class="doc"></div>
+    </div>
+
+  </div>
+
+  <script>
+
+    $("#mainmenu").load("mods/mainmenu.html");
+    
+    $(document).ready(function(){
+      $url = window.location.search;
+      $id = $url.substr(6,$url.lenght);
+      
+      $ref = firebase.database().ref("tutorials/" + $id);
+      $ref.on('value',function(snap){
+        
+        $date = snap.val().date;
+        $img = snap.val().img;
+        $title = snap.val().title;
+        $url = snap.val().url;
+
+        $(".doc-date").text("Fecha de Publicacion: " + $date);
+        $(".doc-title").text($title);
+
+        $code = "<img src='" + $img + "' class='doc-img'>";
+        $(".doc-img").html($code);
+        $(".doc").load($url);
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>

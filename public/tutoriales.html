@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/materialize_grid.css">
+  <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="css/tutoriales.css">
+  <link rel="stylesheet" href="css/card.css">
+  <link rel="stylesheet" href="css/animate.css">
+
+  <script text="text/javascript" src="js/jquery.js"></script>
+  <!--Icons-->
+  <script src="https://use.fontawesome.com/5251cdd048.js"></script>
+  <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+  <!--Firebase-->
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+  <script type="text/javascript" src="js/dbconf.js"></script>
+
+  <title>Tutoriales - Clarke Desings</title>
+</head>
+<body>
+  
+  <div id="mainmenu"></div>
+
+  <div class="fab">
+    <i class="fa fa-filter"></i>
+  </div>
+
+  <div class="row" id="content"></div>
+
+
+  <script>
+    $("#mainmenu").load("mods/mainmenu.html");
+
+    $ref = firebase.database().ref().child("tutorials");
+    $ref.once('value',showTutorials);
+
+    function showTutorials(snap){
+      snap.forEach(tuto => {
+        
+        $key = tuto.key;
+        $date = tuto.val().date;
+        $img = tuto.val().img;
+        $tag = tuto.val().tag;
+        $title = tuto.val().title;
+        $url = tuto.val().url;
+
+        $code = "<div class='col l3 m4 s6 space' id='" + $key + "'>";
+        $code += "<div class='card animated bounceIn'>";
+        $code += "<div class='card-img'>";
+        $code += "<img src='" + $img + "'></div>";
+        $code += "<div class='card-main'>";
+        $code += "<a href='#' class='tag'>" + $tag + "</a>";
+        $code += "<span class='date'>" + $date + "</span>";
+        $code += "<h3 class='title'>" + $title + "</h3>";
+        $code += "</div></div></div>";
+
+        $("#content").append($code);
+
+      });
+    }
+
+    $("#content").on("click",".space",function(){
+      $id = $(this).attr("id");
+      window.location.replace("tutorial.html?code=" + $id);
+    });
+    
+  </script>
+</body>
+</html>
