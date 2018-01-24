@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tienda - Clarke Designs</title>
+
+  <link rel="stylesheet" href="css/materialize_grid.css">
+  <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="css/store.css">
+  <link rel="stylesheet" href="css/card.css">
+  <script src="https://use.fontawesome.com/5251cdd048.js"></script>
+  <script text="text/javascript" src="js/jquery.js"></script>
+  <!--Firebase-->
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+  <script type="text/javascript" src="js/dbconf.js"></script>
+</head>
+<body>
+  
+  <div id="mainmenu"></div>
+  <div class="row" id="content"></div>
+  
+  <script>
+    
+    $("#mainmenu").load("mods/mainmenu.html");
+
+    $ref = firebase.database().ref().child("store");
+    $ref.on('value',fillStore);
+
+    function fillStore(snap){
+      snap.forEach(item =>{
+
+        $key = item.key;
+        $title = item.val().title;
+        $price = item.val().price;
+        $img = item.val().img;
+
+        if($price == 0){
+          $price = "Gratis";
+        }else{
+          $price = "$" + $price;
+        }
+
+        $code = "<div class='col l3 space' id='" + $key + "'>";
+        $code += "  <div class='card animated bounceIn'>";
+        $code += "    <div class='card-img'>";
+        $code += "      <img src='" + $img + "'>";
+        $code += "    </div>";
+        $code += "    <div class='card-main'>";
+        $code += "      <h3 class='title'>" + $title + "</h3>";
+        $code += "      <span class='price'>"+$price+"</span>";
+        $code += "      <div class='mini-fab'>";
+        $code += "        <i class='fa fa-shopping-cart'></i>";
+        $code += "      </button>";
+        $code += "    </div>";
+        $code += "  </div>";
+        $code += "</div>";
+
+        $("#content").append($code);
+
+      });
+    }
+
+
+  </script>
+
+
+</body>
+</html>

@@ -18,6 +18,7 @@
 
 .card-main{
   padding: 16px;
+  position: relative;
 }
 
 .card-main a.tag{
@@ -45,6 +46,39 @@
 .card-main .title:hover{
   color: #666;
 }
+
+span.price{
+  color: #289216;
+  font-weight: bold;
+  display: block;
+}
+
+.mini-fab{
+  color: #fff;
+  position: absolute;
+  right: 10px;
+  top: -18px;
+  background-color: #FF4081;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 2px 2px #999;
+  transition: .3s ease;
+}
+
+.mini-fab i{
+  color: #fff;
+}
+
+
+.mini-fab:hover{
+  background-color: #666;
+}
+
+
 
 .space{
   padding: 8px;
