@@ -16,11 +16,40 @@ ul{
   list-style: none;
 }
 
-
 a{
   text-decoration: none;
 }
 
 
 /*SPACING*/
+.top8{margin-top: 8px;}
+.top12{margin-top: 12px;}
 .top24{margin-top: 24px;}
+.top32{margin-top: 32px;}
+.top48{margin-top: 48px;}
+
+
+/*MATERIAL DESIGN*/
+
+.fab{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  z-index: 1000;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 2px 2px #ccc;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.fab:hover{
+  background-color: #666;
+  transform: scale(1.1);
+}
+
+.fab i{
+  color: #fff;
+}

@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="css/default.css">
   <link rel="stylesheet" href="css/store.css">
   <link rel="stylesheet" href="css/card.css">
+  <link rel="stylesheet" href="css/animate.css">
+  
   <script src="https://use.fontawesome.com/5251cdd048.js"></script>
   <script text="text/javascript" src="js/jquery.js"></script>
   <!--Firebase-->
@@ -17,6 +19,9 @@
 <body>
   
   <div id="mainmenu"></div>
+  <div class="fab">
+    <i class="fa fa-filter"></i>
+  </div>
   <div class="row" id="content"></div>
   
   <script>
@@ -24,7 +29,7 @@
     $("#mainmenu").load("mods/mainmenu.html");
 
     $ref = firebase.database().ref().child("store");
-    $ref.on('value',fillStore);
+    $ref.once('value',fillStore);
 
     function fillStore(snap){
       snap.forEach(item =>{
@@ -40,7 +45,7 @@
           $price = "$" + $price;
         }
 
-        $code = "<div class='col l3 space' id='" + $key + "'>";
+        $code = "<div class='col xl3 l4 m6 s12 space' id='" + $key + "'>";
         $code += "  <div class='card animated bounceIn'>";
         $code += "    <div class='card-img'>";
         $code += "      <img src='" + $img + "'>";
@@ -48,13 +53,16 @@
         $code += "    <div class='card-main'>";
         $code += "      <h3 class='title'>" + $title + "</h3>";
         $code += "      <span class='price'>"+$price+"</span>";
-        $code += "      <div class='mini-fab'>";
-        $code += "        <i class='fa fa-shopping-cart'></i>";
+        $code += "      <div class='mini-fab' title='Descargar'>";
+        $code += "        <i class='fa fa-download'></i>";
         $code += "      </button>";
         $code += "    </div>";
         $code += "  </div>";
         $code += "</div>";
 
+        $("#content").append($code);
+        $("#content").append($code);
+        $("#content").append($code);
         $("#content").append($code);
 
       });

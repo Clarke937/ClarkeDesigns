@@ -1,0 +1,41 @@
+[debug] [2018-01-25T00:06:41.536Z] ----------------------------------------------------------------------
+[debug] [2018-01-25T00:06:41.539Z] Command:       D:\Program Files\nodejs\node.exe D:\Users\Edgar\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-01-25T00:06:41.539Z] CLI Version:   3.17.3
+[debug] [2018-01-25T00:06:41.539Z] Platform:      win32
+[debug] [2018-01-25T00:06:41.539Z] Node Version:  v9.4.0
+[debug] [2018-01-25T00:06:41.540Z] Time:          Wed Jan 24 2018 18:06:41 GMT-0600 (Hora estándar, América Central)
+[debug] [2018-01-25T00:06:41.540Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-01-25T00:06:41.587Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-01-25T00:06:41.589Z] > authorizing via signed-in user
+[debug] [2018-01-25T00:06:41.593Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-01-25T00:06:41.594Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/Xn7hyfLre02H2xmozvI7P7bfdmZIn1P_qMVggJ-8p8g',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Wed Jan 24 2018 18:06:41 GMT-0600 (Hora estándar, América Central)
+[debug] [2018-01-25T00:06:41.905Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-25T00:06:42.168Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/clarke-designs  
+  
+ Wed Jan 24 2018 18:06:42 GMT-0600 (Hora estándar, América Central)
+[debug] [2018-01-25T00:06:43.153Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-25T00:06:43.153Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/clarke-designs/tokens  
+  
+ Wed Jan 24 2018 18:06:43 GMT-0600 (Hora estándar, América Central)
+[debug] [2018-01-25T00:06:43.756Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Users\Edgar\Desktop\Clarke\Programacion\Firebase\ClarkeDesigns'...
+[info] 
+[debug] [2018-01-25T00:06:43.762Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/clarke-designs  
+  
+ Wed Jan 24 2018 18:06:43 GMT-0600 (Hora estándar, América Central)
+[debug] [2018-01-25T00:06:44.177Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-25T00:06:44.177Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/280397753835/clients/_:getWebAppConfig  
+  
+ Wed Jan 24 2018 18:06:44 GMT-0600 (Hora estándar, América Central)
+[debug] [2018-01-25T00:06:44.894Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+

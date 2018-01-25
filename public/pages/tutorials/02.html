@@ -1,0 +1,99 @@
+<h2 class="title top24">Introducción</h2>
+<p>
+  A continuacion te presentamos una guia corta de todos los comandos
+  que necesitas para manejar las versiones de tu proyecto con la herramienta
+  Git. En la presente guia no se explicara cada uno de los conceptos que
+  git maneja, solo se mostrara sus comandos y cual es su funcionalidad.
+</p>
+
+<h2 class="subtitle">Primeros Pasos</h2>
+<p>
+  Una vez finalizada la instalacion de Git, abriremos la "Git Bash"
+  y haremos unas configuraciones basicas de inicio.
+</p><br>
+
+<h3 class="step">Configuración de Nombre de Usuario</h3>
+<code>
+  git config --global user.name "TuNombreAqui"
+</code>
+
+<h3 class="step top12">Configuracion de Correo Electronico</h3>
+<code>
+  git config --global user.email "TuCorreo@Aqui.com"
+</code>
+
+<h3 class="step top12">Ver Lista de todas las configuraciones</h3>
+<code>
+  git config --global --list
+</code>
+
+<h2 class="subtitle top32">Comandos para gestionar tu proyecto</h2>
+<p>Para iniciar un proyecto primero debes de posicionarte en la
+carpeta de este.</p>
+<code>
+  cd "Ruta\A\Tu\Carpeta"
+</code>
+
+<h3 class="step top12">Comando de Inicio</h3>
+<p>Con esto git registrara la carpeta actual como un proyecto, 
+ahora esta lista para hacer el manejo de versiones.
+</p>
+<code>
+  git init
+</code>
+
+<h3 class="step top12">Preparar un archivo para el commit</h3>
+<code>
+  git add "NombreDeArchivo.extencion"
+</code>
+
+<h3 class="step top12">Agregar todos los archivos y carpetas para el commit</h3>
+<code>
+  git add -A
+</code>
+
+<h3 class="step top12">Ver el estado de tu proyecto</h3>
+<code>
+  git status
+</code>
+
+<h3 class="step top12">Hacer un commit y incluir un mensaje</h3>
+<code>
+  git commit -m "Mensaje Descriptivo de la version"
+</code>
+
+<h3 class="step top12">Ver lista de Commits o versiones</h3>
+<code>
+  git log
+</code>
+
+<h3 class="step top12">Crear un archivo txt con la lista de commits</h3>
+<code>
+  git log > NombreDeArchivo.txt
+</code>
+
+<h3 class="step top12">Regresar a una version anterior de tu proyecto</h3>
+<code>
+  git checkout CodigoSHA
+</code>
+
+<h3 class="step top12">Posicionarte en la version mas reciente</h3>
+<code>
+  git checkout master
+</code>
+
+<h3 class="step top12">Crear una nueva rama</h3>
+<code>
+  git branch NombreDeLaRama
+</code>
+
+<h3 class="step top12">Eliminar una rama</h3>
+<code>
+  git branch -D NombreDeLaRama
+</code>
+
+<h3 class="step top12">Fusionar dos Ramas</h3>
+<p>Antes de hacer esto, asegurate de posicionarte en la rama principal, la cual absorvera todos los cambios</p>
+<code>
+  git merge NombreDeLaRama
+</code>
